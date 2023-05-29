@@ -38,12 +38,22 @@ namespace XamarinEvernote.Constants
 
     public class PgSettings
     {        
-        public const string btnLogOut = "Войти из аккаунта";
+        public const string btnLogOut = "Выйти из аккаунта";
+    }
+
+    public class PgNotes
+    {
+        public const string btnAdd = "Добавить";
     }
 
     public class TabBarNames
     {
         public const string notes = "Заметки";
         public const string settings = "Настройки";        
+    }
+
+    public class Staff
+    {
+        public const string loadData = "Загрузка данных";
     }
 }

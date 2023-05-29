@@ -17,15 +17,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Staff\Customs\Cells\" />
-    <Folder Include="Staff\DataTemplates\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Update="Pages\Views\Auth\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Views\Loading\LoadingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Views\Loading\VwCollectionEmpty.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Views\Notes\NotesDetailPage.xaml">
@@ -35,6 +33,15 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Views\Settings\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Staff\Customs\Cells\CellEmpty.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Staff\Customs\Cells\CellError.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Staff\Customs\Cells\CellNote.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

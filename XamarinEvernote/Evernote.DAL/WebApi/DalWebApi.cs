@@ -12,7 +12,7 @@ namespace Evernote.DAL.WebApi
             if (isMoq == true)
             {
                 Auth = new Moq.MoqAuth();
-                Notes = new Action.ActionNotes();                
+                Notes = new Moq.MoqNotes();                
             }
             else
             {

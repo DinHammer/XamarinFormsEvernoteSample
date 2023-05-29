@@ -3,14 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm ="clr-namespace:XamarinEvernote.Pages.ViewModels.Settings"
              xmlns:constString="clr-namespace:XamarinEvernote.Constants"
-             x:Class="XamarinEvernote.Pages.Views.Settings.SettingsPage">
+             x:Class="XamarinEvernote.Pages.Views.Settings.SettingsPage"
+             Style="{StaticResource stlViewBarNo}">
 
     <ContentPage.BindingContext>
         <vm:VmSettings/>
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout
+            VerticalOptions="CenterAndExpand">
             <Button
                 Text="{x:Static constString:PgSettings.btnLogOut}"
                 Command="{Binding CmdLogOut}"/>

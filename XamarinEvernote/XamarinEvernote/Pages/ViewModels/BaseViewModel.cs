@@ -69,70 +69,12 @@ namespace XamarinEvernote.Pages.ViewModels
             dataSources.Clear(); ;
         }
 
-        /*protected async Task<RequestResult<mdl.MdlPersonalData>> prtGetPersonalData()
-        {
-            var vToken = await srvAuth.Instance.GetTokenAccess();
-            if (!vToken.IsValid)
-            {
-                return new RequestResult<mdl.MdlPersonalData>(null, vToken.Status, vToken.Message);
-            }
-            var vAcountId = await srvAuth.Instance.GetAccountId();
-            if (!vAcountId.IsValid)
-            {
-                return new RequestResult<mdl.MdlPersonalData>(null, vAcountId.Status, vAcountId.Message);
-            }
-            return new RequestResult<mdl.MdlPersonalData>(new mdl.MdlPersonalData(vToken.Data, vAcountId.Data), RequestStatus.Ok);
-        }*/
+        
         protected static Task prtShowTbdMessage()
-            => ShowAlert("ololoPishPish", "TBD", "Dobre!!!");
+            => ShowAlert("", "TBD", "Dobre!!!");
 
 
-        /*protected void prtOnPageAppearingTrackError<T>(
-            string strFunctionName,
-            RequestResult<T> requestResult
-            ) where T : class
-        {
-            prtTrackError<T>(nameof(OnPageAppearing), strFunctionName, requestResult);
-        }*/
-
-        /*protected void prtTrackError<T>(
-            string strPlace,
-            string strFunctionName,
-            RequestResult<T> requestResult
-            ) where T : class
-        {
-            if (IsTest)
-            {
-                return;
-            }
-
-            string strStatus = requestResult.Status.ToString();
-            Exception ex = new Exception($"{StrPage}::{strPlace}::{strFunctionName}::{strStatus}");
-
-            IDictionary<string, string> parametrs = new Dictionary<string, string>();
-            parametrs.Add(nameof(requestResult.Message), requestResult.Message);
-
-            srvAppCenter.Instance.TrackError(ex, parametrs);
-        }*/
-
-        /*protected void prtTrackEvent<T>(
-            string strFunctionName,
-            RequestResult<T> requestResult
-            ) where T : class
-        {
-            if (IsTest)
-            {
-                return;
-            }
-
-            string strTrackIdentificator = $"{StrPage}::{strFunctionName}";
-
-            IDictionary<string, string> parametrs = new Dictionary<string, string>();
-            parametrs.Add(nameof(requestResult.Status), requestResult.Status.ToString());
-            parametrs.Add(nameof(requestResult.Message), requestResult.Message);
-
-            srvAppCenter.Instance.TrackEvent(strTrackIdentificator, parametrs);
-        }*/
+        
 
         #endregion
     }

@@ -43,8 +43,8 @@ namespace XamarinEvernote
 
 #if DEBUG
             //typeAppStart=TypeAppStart.tpRelize;
-            typeAppStart = TypeAppStart.tpDebugLogin;
-            //typeAppStart = TypeAppStart.tpDebugMain;
+            //typeAppStart = TypeAppStart.tpDebugLogin;
+            typeAppStart = TypeAppStart.tpDebugMain;
             
 
 #endif
