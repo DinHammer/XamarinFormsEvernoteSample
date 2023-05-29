@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm ="clr-namespace:XamarinEvernote.Pages.ViewModels.Auth"
+             xmlns:constString="clr-namespace:XamarinEvernote.Constants"
+             xmlns:behaviors="clr-namespace:XamarinEvernote.Staff.Behaviors"
+             x:Class="XamarinEvernote.Pages.Views.Auth.LoginPage"
+             Style="{StaticResource stlViewAuthMain}">
+
+    <ContentPage.BindingContext>
+        <vm:VmLogin/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            
+            <Label Text="{x:Static constString:PgLogin.lblEntryHeaderInputLogin}"
+                   Style="{StaticResource stlAuthEntrHeader}"/>
+            <Entry
+                Placeholder="{x:Static constString:PgLogin.lblEntryHeaderInputLogin}"
+                Text="{Binding StrPhone}"
+                Style="{StaticResource stlAuthEntryInputPhone}">
+                <Entry.Behaviors>
+                    <behaviors:EntryPhone/>
+                </Entry.Behaviors>
+            </Entry>
+
+            <Label Text="{x:Static constString:PgLogin.lblEntryHeaderPassword}"
+                   Style="{StaticResource stlAuthEntrHeader}"/>
+            <Entry
+                Placeholder="{x:Static constString:PgLogin.entrPlaceholderPassword}"
+                Text="{Binding StrPassword}"
+                Style="{StaticResource stlAuthEntryPassword}">
+                <Entry.Behaviors>
+                    <behaviors:EntryPhone/>
+                </Entry.Behaviors>
+            </Entry>
+
+            <Button
+                Text="{x:Static constString:PgLogin.btnInput}"
+                Command="{Binding CmdLogin}"/>
+
+            <ActivityIndicator
+                IsRunning="{Binding IsBusy}"/>
+            
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

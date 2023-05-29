@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
-using XamarinEvernote.ViewModels;
-using XamarinEvernote.Views;
+
+using viewNotes = XamarinEvernote.Pages.Views.Notes;
 
 namespace XamarinEvernote
 {
@@ -11,8 +11,9 @@ namespace XamarinEvernote
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
-            Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+            //Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
+            //Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+            Routing.RegisterRoute(nameof(viewNotes.NotesDetailPage), typeof(viewNotes.NotesDetailPage));
         }
 
     }
