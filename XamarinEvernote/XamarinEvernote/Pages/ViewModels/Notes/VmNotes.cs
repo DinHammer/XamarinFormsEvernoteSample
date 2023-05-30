@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using XamarinEvernote.Constants;
 using XamarinEvernote.Models;
 using XamarinEvernote.Staff.Services;
 using static XamarinEvernote.Constants.ConstEnums;
@@ -65,17 +66,18 @@ namespace XamarinEvernote.Pages.ViewModels.Notes
             {
                 return;
             }
-            IsBusy = true;
-
-            await prtShowTbdMessage();
+            IsBusy = true;            
 
 
-            /*if (parametr is MdlNoteOne mdlNoteOne)
+            if (parametr is MdlNoteOne mdlNoteOne)
             {
-                await SrvNavigation.Instance.NavigateTo(TypePage.NotesDetail, isNewNavigationStack: true, strNavigationParams: mdlNoteOne.Id.ToString());
-                
-            }*/
-            
+                await SrvNavigation.Instance.NavigateTo(TypePage.NotesDetail, 
+                    parametrs: new Dictionary<string, object> { 
+                        {KeyNavigations.strSelectedNote,  mdlNoteOne.GetNote()} }, 
+                    isNewNavigationStack: true);
+
+            }
+
 
             IsBusy = false;
         });

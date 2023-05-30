@@ -16,6 +16,8 @@ namespace XamarinEvernote.Models
             Cmd= cmd;
         }
 
+        public ObjNote GetNote() => _objNote;
+
         public int Id => _objNote.id;
         public string Title => _objNote.title;
         public string Text => _objNote.text;

@@ -1,9 +1,11 @@
 ﻿using Evernote.Abstractions;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using XamarinEvernote.Staff;
 using static XamarinEvernote.Constants.ConstEnums;
@@ -24,14 +26,17 @@ namespace XamarinEvernote.Pages.ViewModels
         private string StrPage => _thisPage.ToString();
         public MgcObservableCollection<object> dataCollection { get; set; }
 
+        
         public string Content
         {
             get => Get(_content);
             set => Set(value);
+            
         }
 
+
         //public bool IsTest { get; private set; }
-        
+
 
         #endregion
 
@@ -52,6 +57,27 @@ namespace XamarinEvernote.Pages.ViewModels
         #endregion
 
         #region Methods
+
+
+        protected RequestResult<T> prtGetNavigationParametr<T>(string key) where T : class
+        {
+            Dictionary<string, object> parametrs = JsonConvert.DeserializeObject<Dictionary<string, object>>(Content);
+
+            bool isCorrect = parametrs.TryGetValue(key, out object value);
+
+            if (isCorrect == true)
+            {
+                string str = value.ToString();
+                var rslt = JsonConvert.DeserializeObject<T>(str);
+
+                return new RequestResult<T>(rslt, RequestStatus.Ok);                
+            }
+            else
+            {
+                return new RequestResult<T>(null, RequestStatus.NotModified);
+            }
+        }
+        
 
         protected void prtAddItemsInDataSource(IList<object> dataSource, IList<object> items)
         {

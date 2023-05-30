@@ -43,8 +43,8 @@ namespace XamarinEvernote
 
 #if DEBUG
             //typeAppStart=TypeAppStart.tpRelize;
-            typeAppStart = TypeAppStart.tpDebugLogin;
-            //typeAppStart = TypeAppStart.tpDebugMain;
+            //typeAppStart = TypeAppStart.tpDebugLogin;
+            typeAppStart = TypeAppStart.tpDebugMain;
             
 
 #endif
@@ -70,7 +70,7 @@ namespace XamarinEvernote
             switch (typeAppStart)
             {
                 case TypeAppStart.tpDebugLogin:
-                    await srvNavigation.Instance.NavigateTo(TypePage.Login, true);
+                    await srvNavigation.Instance.NavigateTo(TypePage.Login, isNewNavigationStack: true);
                     break;
                 case TypeAppStart.tpDebugMain:
                     await NavigateToWithAuth(TypePage.Notes);
@@ -79,14 +79,14 @@ namespace XamarinEvernote
                     var vTRefresh = await srvAuth.Instance.GetTokenRefresh();
                     if (!vTRefresh.IsValid)
                     {
-                        await srvNavigation.Instance.NavigateTo(TypePage.Login, true);
+                        await srvNavigation.Instance.NavigateTo(TypePage.Login, isNewNavigationStack: true);
                         return;
                     }
 
                     var vRefresh = await DalWebApi.Auth.RefreshToken(new ObjRefreshTokenIn(vTRefresh.Data));
                     if (!vRefresh.IsValid)
                     {
-                        await srvNavigation.Instance.NavigateTo(TypePage.Login, true);
+                        await srvNavigation.Instance.NavigateTo(TypePage.Login, isNewNavigationStack: true);
                         return;
                     }
                     else
@@ -95,7 +95,7 @@ namespace XamarinEvernote
                         //await srvAuth.Instance.SetTokenRefresh(vRefresh.Data.refresh);
                     }
 
-                    await srvNavigation.Instance.NavigateTo(TypePage.Notes, true);
+                    await srvNavigation.Instance.NavigateTo(TypePage.Notes, isNewNavigationStack: true);
                     break;
             }
 
@@ -121,7 +121,7 @@ namespace XamarinEvernote
                 var vLogIn = await DalWebApi.Auth.GetLoggIn(new ObjLoginIn(strPhone, strPassword));
                 if (!vLogIn.IsValid)
                 {
-                    await srvNavigation.Instance.NavigateTo(TypePage.Login, true);
+                    await srvNavigation.Instance.NavigateTo(TypePage.Login, isNewNavigationStack: true);
                     return new RequestResult();
                 }
                 else
@@ -129,7 +129,7 @@ namespace XamarinEvernote
                     
                     var vSetToken = await srvAuth.Instance.SetTokens(vLogIn.Data);                    
 
-                    await srvNavigation.Instance.NavigateTo(page, isNewNavigationStack);
+                    await srvNavigation.Instance.NavigateTo(page, isNewNavigationStack: isNewNavigationStack);
                 }
             }
             else
@@ -139,12 +139,12 @@ namespace XamarinEvernote
                 if (vRefresh.IsValid)
                 {
                     var vLocalRefresh = await srvAuth.Instance.SetTokens(vRefresh.Data);
-                    await srvNavigation.Instance.NavigateTo(page, isNewNavigationStack);
+                    await srvNavigation.Instance.NavigateTo(page, isNewNavigationStack: isNewNavigationStack);
                     return new RequestResult();
                 }
                 else
                 {
-                    await srvNavigation.Instance.NavigateTo(TypePage.Login, true);
+                    await srvNavigation.Instance.NavigateTo(TypePage.Login, isNewNavigationStack: true);
                     return new RequestResult();
                 }
 

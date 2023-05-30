@@ -24,6 +24,11 @@ namespace XamarinEvernote.Constants
 
     }
 
+    public class KeyNavigations 
+    {
+        public const string strSelectedNote = nameof(strSelectedNote);
+    }
+
     public class PgLogin
     {
         public const string header = "Введите номер телефона";

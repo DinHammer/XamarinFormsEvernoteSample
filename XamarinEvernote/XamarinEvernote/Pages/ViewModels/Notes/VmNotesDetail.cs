@@ -8,11 +8,18 @@ using static XamarinEvernote.Constants.ConstEnums;
 using System.Windows.Input;
 using XamarinEvernote.Staff.Services;
 using XamarinEvernote.Models;
+using Xamarin.Forms;
+using XamarinEvernote.Constants;
 
 namespace XamarinEvernote.Pages.ViewModels.Notes
 {
+    
     public class VmNotesDetail : BaseViewModel
     {
+
+        
+
+
         private string _strTitle = string.Empty;
         public string StrTitle
         {
@@ -39,18 +46,15 @@ namespace XamarinEvernote.Pages.ViewModels.Notes
         {
             //return base.OnPageAppearing();
 
-            int id = 0;
-
-            Int32.TryParse(Content, out id);
-
-            var vTokenAccess = await SrvAuth.Instance.GetTokenAccess();
+            var vNotes = prtGetNavigationParametr<ObjNote>(KeyNavigations.strSelectedNote);
             
-
+            var vTokenAccess = await SrvAuth.Instance.GetTokenAccess();            
             string tokenAccess = vTokenAccess.Data;
 
-            //DalWebApi.Notes.GetOne(new ObjNoteIn())
+            StrTitle = vNotes.Data.title;
+            StrText = vNotes.Data.text;
+            StrDate = vNotes.Data.dateTime.ToString("yyyy MMMM dd");
 
-            StrDate = DateTime.Now.ToString("yyyy MMMM dd");
         }
 
         public ICommand CmdSave => MakeCommand(async () =>

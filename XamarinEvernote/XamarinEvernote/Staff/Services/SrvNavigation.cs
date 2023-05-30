@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using XamarinEvernote.Pages.ViewModels;
 using constEnums = XamarinEvernote.Constants.ConstEnums;
+
 
 namespace XamarinEvernote.Staff.Services
 {
@@ -14,8 +17,8 @@ namespace XamarinEvernote.Staff.Services
 
         public async Task NavigateTo(
             constEnums.TypePage page,
-            bool isNewNavigationStack = false,
-            string strNavigationParams = "")
+            Dictionary<string, object> parametrs = default,
+            bool isNewNavigationStack = false)
         {
             string strPage = $"{page.ToString()}Page";
 
@@ -24,9 +27,10 @@ namespace XamarinEvernote.Staff.Services
                 strPage = $"//{strPage}";
             }
 
-            if (strNavigationParams != "")
+            if (parametrs!=default)
             {
-                strPage = $"{strPage}?{strNavigationParams}";
+                string strNavigationParams = JsonConvert.SerializeObject(parametrs);                
+                strPage = $"{strPage}?{nameof(BaseViewModel.Content)}={strNavigationParams}";
             }
 
             await Shell.Current.GoToAsync(strPage);

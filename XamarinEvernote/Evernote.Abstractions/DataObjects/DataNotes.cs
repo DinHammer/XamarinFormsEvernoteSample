@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Evernote.Abstractions.Staff.JsonConverters;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -22,8 +26,11 @@ namespace Evernote.Abstractions.DataObjects
         public string title;
         public string text;
         public bool isPrivate;
+        [JsonConverter(typeof(CustomDateTimeConverter))]
         public DateTime dateTime;
     }
+
+    
 
     public class ObjNoteUpdateIn
     { }
