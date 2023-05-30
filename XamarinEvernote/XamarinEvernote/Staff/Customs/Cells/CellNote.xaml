@@ -2,9 +2,42 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinEvernote.Staff.Customs.Cells.CellNote">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="stlCellThis" TargetType="StackLayout">
+                <Setter Property="Padding" Value="{StaticResource PaddingLeftUpRightDown}"/>
+                <Setter Property="Margin" Value="{StaticResource MarginLeftRight}"/>
+            </Style>
+            <Style x:Key="stlLbl" TargetType="Label">
+                <Setter Property="Padding" Value="0,10,0,10"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <ContentView.Content>
+      <StackLayout
+          Style="{StaticResource stlCellThis}">
+            <Frame
+              CornerRadius="7"
+              Padding="5"
+                BackgroundColor="{StaticResource BackgroundWhite}">
+                <StackLayout>
+                    <Label x:Name="lblData"
+                           TextColor="{StaticResource ColorBlue}"
+                           Style="{StaticResource stlLbl}"/>
+                    <Label x:Name="lblTitle"
+                           Style="{StaticResource stlLbl}"
+                           TextColor="Black"
+                           FontAttributes="Italic"/>
+                    <Label x:Name="lblText"
+                           TextColor="Black"
+                           Style="{StaticResource stlLbl}"/>
+                </StackLayout>
+            </Frame>
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer x:Name="tapGesture"/>
+            </StackLayout.GestureRecognizers>
       </StackLayout>
   </ContentView.Content>
 </ContentView>

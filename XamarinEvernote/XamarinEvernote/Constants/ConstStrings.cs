@@ -45,6 +45,10 @@ namespace XamarinEvernote.Constants
     {
         public const string btnAdd = "Добавить";
     }
+    public class PgNotesDetail
+    {
+        public const string btnSave = "Сохранить";
+    }
 
     public class TabBarNames
     {

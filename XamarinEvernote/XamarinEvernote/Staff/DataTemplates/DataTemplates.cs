@@ -23,7 +23,7 @@ namespace XamarinEvernote.Staff.DataTemplates
         public DtNote(MdlNoteOne data) : base(() => CreateView(data)) { }
         static View CreateView(MdlNoteOne data)
         {
-            CellNote cell = new CellNote();            
+            CellNote cell = new CellNote(data);            
             return cell;
         }
     }

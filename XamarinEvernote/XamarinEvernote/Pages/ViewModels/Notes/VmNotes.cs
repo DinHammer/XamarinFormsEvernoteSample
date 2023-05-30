@@ -40,7 +40,7 @@ namespace XamarinEvernote.Pages.ViewModels.Notes
             for (int i = 0; i < vNotes.Data.Count; i++)
             { 
                 objNote = vNotes.Data.notes[i];
-                dataSource.Add(new MdlNoteOne(objNote));
+                dataSource.Add(new MdlNoteOne(objNote, CmdCell));
             }
 
             dataCollection.MgcReplaceRange(dataSource);
@@ -55,6 +55,27 @@ namespace XamarinEvernote.Pages.ViewModels.Notes
             IsBusy = true;
 
             await prtShowTbdMessage();
+
+            IsBusy = false;
+        });
+
+        public ICommand CmdCell => MakeCommand(async (Object parametr) =>
+        {
+            if (IsBusy == true)
+            {
+                return;
+            }
+            IsBusy = true;
+
+            await prtShowTbdMessage();
+
+
+            /*if (parametr is MdlNoteOne mdlNoteOne)
+            {
+                await SrvNavigation.Instance.NavigateTo(TypePage.NotesDetail, isNewNavigationStack: true, strNavigationParams: mdlNoteOne.Id.ToString());
+                
+            }*/
+            
 
             IsBusy = false;
         });

@@ -47,6 +47,22 @@ namespace Evernote.DAL.WebApi.Moq
             });
         }
 
+        public Task<RequestResult<ObjNoteOut>> GetOne(ObjNoteIn data)
+        {
+            return Task.Run(() =>
+            {
+                ObjNoteOut result = new ObjNoteOut();
+                result.notes.Add(new ObjNote(
+                    id: 1,
+                    title: "Заметка 1",
+                    text: "Хорошая заметка 1",
+                    isPrivate: false,
+                    dateTime: DateTime.Now));                
+
+                return new RequestResult<ObjNoteOut>(result, RequestStatus.Ok);
+            });
+        }
+
         public Task<RequestResult> UpdateOne(ObjNoteUpdateIn data)
         {
             return Task.Run(() =>

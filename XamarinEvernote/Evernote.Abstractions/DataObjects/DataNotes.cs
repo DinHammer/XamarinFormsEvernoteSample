@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 
@@ -40,6 +41,18 @@ namespace Evernote.Abstractions.DataObjects
         public string TokenAccess { get; private set; }
     }
 
+    public class ObjNoteOneIn
+    {
+        public ObjNoteOneIn(string tokenAccess, int id)
+        {
+            TokenAccess = tokenAccess;
+            Id = id.ToString();
+        }
+
+        public string TokenAccess { get; private set; }
+        public string Id { get; private set; }
+    }
+
     public class ObjNoteOut
     {
         public ObjNoteOut()
@@ -50,5 +63,7 @@ namespace Evernote.Abstractions.DataObjects
         public List<ObjNote> notes;
 
         public int Count => notes.Count;
+
+        public ObjNote GetFirst() => notes.First();
     }
 }

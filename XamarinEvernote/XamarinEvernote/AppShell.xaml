@@ -54,7 +54,11 @@
             Route="SettingsPage" 
             ContentTemplate="{DataTemplate pgSettings:SettingsPage}" />
     </TabBar>
-    
+
+
+    <TabBar>
+        <ShellContent Route="NotesDetailPage" ContentTemplate="{DataTemplate pgNotes:NotesDetailPage}"/>
+    </TabBar>
 
     <!--
         If you would like to navigate to this content you can do so by calling

@@ -16,6 +16,7 @@ namespace Evernote.DAL.WebApi
     public interface IActionNotes
     {
         Task<RequestResult<ObjNoteOut>> GetAll(ObjNoteIn data);
+        Task<RequestResult<ObjNoteOut>> GetOne(ObjNoteIn data);
         Task<RequestResult> UpdateOne(ObjNoteUpdateIn data);
         Task<RequestResult> CreateOne(ObjNoteCreateIn data);
     }

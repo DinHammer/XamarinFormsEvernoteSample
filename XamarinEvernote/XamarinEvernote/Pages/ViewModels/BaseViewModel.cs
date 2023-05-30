@@ -4,15 +4,19 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 using XamarinEvernote.Staff;
 using static XamarinEvernote.Constants.ConstEnums;
 
 namespace XamarinEvernote.Pages.ViewModels
 {
+
+    [QueryProperty(nameof(Content), nameof(Content))]
     public class BaseViewModel : CoreViewModel
     {
         #region Fields
         private TypePage _thisPage;
+        private string _content;
         #endregion
 
         #region Properties
@@ -20,7 +24,14 @@ namespace XamarinEvernote.Pages.ViewModels
         private string StrPage => _thisPage.ToString();
         public MgcObservableCollection<object> dataCollection { get; set; }
 
+        public string Content
+        {
+            get => Get(_content);
+            set => Set(value);
+        }
+
         //public bool IsTest { get; private set; }
+        
 
         #endregion
 

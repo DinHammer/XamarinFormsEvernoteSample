@@ -19,6 +19,11 @@ namespace Evernote.DAL.WebApi.Action
             throw new NotImplementedException();
         }
 
+        public Task<RequestResult<ObjNoteOut>> GetOne(ObjNoteIn data)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<RequestResult> UpdateOne(ObjNoteUpdateIn data)
         {
             throw new NotImplementedException();
