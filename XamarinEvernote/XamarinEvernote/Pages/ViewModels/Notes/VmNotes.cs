@@ -38,7 +38,7 @@ namespace XamarinEvernote.Pages.ViewModels.Notes
 
 
             ObjNote objNote = null;
-            for (int i = 0; i < vNotes.Data.Count; i++)
+            for (int i = 0; i < vNotes.Data.notes.Count; i++)
             { 
                 objNote = vNotes.Data.notes[i];
                 dataSource.Add(new MdlNoteOne(objNote, CmdCell));

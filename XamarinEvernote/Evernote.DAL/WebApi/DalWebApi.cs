@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using constString = Evernote.Abstractions.Constants.ConstText;
 
 namespace Evernote.DAL.WebApi
 {
     public class DalWebApi
     {
 
-        public static void Init(bool isMoq = false)
+        public static void Init(bool isMoq = false, string base_uri = constString.WebApi.web_api_url)
         {
             if (isMoq == true)
             {
@@ -16,6 +17,8 @@ namespace Evernote.DAL.WebApi
             }
             else
             {
+                Action.ActionStaff.Init(base_uri);
+
                 Auth = new Action.ActionAuth();
                 Notes = new Action.ActionNotes();
             }

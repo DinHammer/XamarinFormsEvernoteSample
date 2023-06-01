@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Evernote.DAL.Staff
 {
-    public class SimpleTools
+    public class SimpleTools: Evernote.Abstractions.Staff.SimpleTools
     {
         static readonly Lazy<SimpleTools> LazyInstance = new Lazy<SimpleTools>(() => new SimpleTools(), true);
         public new static SimpleTools Instance => LazyInstance.Value;

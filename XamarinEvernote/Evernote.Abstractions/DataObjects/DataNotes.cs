@@ -19,18 +19,17 @@ namespace Evernote.Abstractions.DataObjects
             this.title = title;
             this.text = text;
             this.isPrivate = isPrivate;
-            this.dateTime = dateTime;
+            this.strDateTime = dateTime.ToString("yyyy MM dd HH mm ss");
         }
 
         public int id;
         public string title;
         public string text;
         public bool isPrivate;
-        [JsonConverter(typeof(CustomDateTimeConverter))]
-        public DateTime dateTime;
+        public string strDateTime;
     }
 
-    
+
 
     public class ObjNoteUpdateIn
     { }
@@ -69,8 +68,5 @@ namespace Evernote.Abstractions.DataObjects
 
         public List<ObjNote> notes;
 
-        public int Count => notes.Count;
-
-        public ObjNote GetFirst() => notes.First();
     }
 }

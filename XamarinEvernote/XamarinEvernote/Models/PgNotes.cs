@@ -21,7 +21,7 @@ namespace XamarinEvernote.Models
         public int Id => _objNote.id;
         public string Title => _objNote.title;
         public string Text => _objNote.text;
-        public string Date => _objNote.dateTime.ToString("yyyy MMMM dd");
+        public string Date => _objNote.strDateTime;
 
         public ICommand Cmd { get; private set; }
     }

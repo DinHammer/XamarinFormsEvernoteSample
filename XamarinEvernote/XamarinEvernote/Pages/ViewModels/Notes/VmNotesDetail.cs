@@ -53,7 +53,7 @@ namespace XamarinEvernote.Pages.ViewModels.Notes
 
             StrTitle = vNotes.Data.title;
             StrText = vNotes.Data.text;
-            StrDate = vNotes.Data.dateTime.ToString("yyyy MMMM dd");
+            StrDate = vNotes.Data.strDateTime;
 
         }
 

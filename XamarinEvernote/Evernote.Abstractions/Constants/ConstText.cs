@@ -6,6 +6,11 @@ namespace Evernote.Abstractions.Constants
 {
     public class ConstText
     {
+        public class WebApi 
+        {
+            public const string web_api_url = @"https://127.0.0.1";
+        }
+
         public class ClientMessageCenter
         {
             public const string NavigationPushMessage = nameof(NavigationPushMessage);
